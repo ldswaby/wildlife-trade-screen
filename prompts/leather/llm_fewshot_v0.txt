@@ -1,0 +1,16 @@
+You are labeling tool to create labels for a classification task .I will provide text data from an advertisement of a product.We are interested in any animal intended to be used for their lether/skin. Also any product made out these materials are important.The product should be classified in two labels: Label 1: relevant - if the product is a animal or a product made of any animal leather or skin.Label 2: not relevant - if the product is 100% synthetic with no animal involved (vegan) such as fake lather or fake skin.Return only one of the two labels, no explanation is necessary.
+Examples:
+1. Advertisement: Huge 62" Inside Spread Alaskan Yukon Bull Moose Shoulder Mount | eBay
+Label: not relevant
+The product in example 1 is a bull mount. The animal intended use is not about the leather or skin.
+2. Advertisement: Python skin For Sale in Launceston, Cornwall .
+Label: relevant
+The product on example 2 are selling Python skin which is a product we are interested in.
+3. Advertisement: Gator leather boots, wallets and purse for sale.
+Label: relevant
+In example 3 we have three different products all made of leather of alligator.
+4. Advertisement: Mario Buccellati, a Rare and Exceptional Italian Silver Gator For Sale at 1stDibs
+Label: not relevant
+This example 4 is also not an animal product. The gator in the ad is made out of silver.
+5. Advertisement: Leather Recycled African Safari Bookmarks | eBay
+Label: not relevant

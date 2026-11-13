@@ -1,0 +1,4 @@
+# Preserve original research-file bytes on every checkout.
+/data/*.csv -text -whitespace
+/results/runs/** text eol=lf
+/prompts/** text eol=lf

@@ -1,0 +1,46 @@
+source: Barbosa et al. 2025, Tables 2 and 5
+task: sharks
+metric_convention: uncertain; positive-class is plausible for sharks but code uses weighted
+rows:
+  - arm: ACTL text
+    task: sharks
+    input_modality: text
+    accuracy: 0.969
+    published_precision: 0.958
+    published_recall: 0.892
+    published_f1: 0.924
+    provenance: 'published; model developed using validation data; exact evaluation-file identity unverified'
+    note: Table 2; P/R/F1 averaging not established
+  - arm: LTS-text
+    task: sharks
+    input_modality: text
+    accuracy: 0.946
+    published_precision: 0.844
+    published_recall: 0.902
+    published_f1: 0.872
+    provenance: 'published; model developed using validation data; exact evaluation-file identity unverified'
+    note: Table 2; Table 5 reports F1 0.873; P/R/F1 averaging not established
+  - arm: ACTL text-image
+    task: sharks
+    input_modality: text-image
+    accuracy: 0.956
+    published_precision: 0.901
+    published_recall: 0.884
+    published_f1: 0.893
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; image input differs from text-only measured arms; metric convention uncertain'
+  - arm: LTS text-image
+    task: sharks
+    input_modality: text-image
+    accuracy: 0.956
+    published_precision: 0.908
+    published_recall: 0.873
+    published_f1: 0.89
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; image input differs from text-only measured arms; metric convention uncertain'
+  - arm: GPT-4 zero-shot
+    task: sharks
+    input_modality: text
+    published_f1: 0.946
+    provenance: 'published; GPT-4 tuning unestablished'
+    note: Table 5 F1 only; exact prompt condition and model snapshot uncertain

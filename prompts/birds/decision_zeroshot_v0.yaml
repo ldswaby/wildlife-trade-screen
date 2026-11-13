@@ -1,0 +1,19 @@
+version: decision-zeroshot-v0
+family: decision
+condition: zero-shot
+source: Stringham et al. 2021; composite of junk, wanted and domestic-poultry exclusions
+instructions: >-
+  Classify the advertisement using only the supplied advert text.
+  Excluded poultry taxa are all birds in Anseriformes (waterfowl)
+  or Galliformes (gamebirds), and domestic pigeons. Apply these
+  exclusions regardless of whether the birds are described as wild
+  or domestic. Eggs, bird products and accessories alone are not live birds.
+criteria:
+  relevant: >-
+    The advert offers live birds for sale, exchange or free transfer,
+    is not a wanted/request advert, and does not offer excluded poultry taxa.
+  not relevant: >-
+    The advert does not offer live birds, requests birds rather than
+    offering them, or offers excluded poultry taxa.
+examples: []
+rendering: native-choice-v0

@@ -1,0 +1,1 @@
+**Published provenance:** The source names this result “GPT-4 zero-shot”, but its exact prompting condition is unverified. It is therefore not classified here as confirmed zero-shot or few-shot. Only F1 is reported, so FPR is unavailable and no ROC point is shown.

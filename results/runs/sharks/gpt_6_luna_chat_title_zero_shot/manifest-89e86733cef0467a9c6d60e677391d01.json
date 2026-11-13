@@ -1,0 +1,53 @@
+{
+  "run_id": "89e86733cef0467a9c6d60e677391d01",
+  "git_sha": "806509f298e770495fc3e3a9c39372802111c7fd",
+  "task": "sharks",
+  "status": "complete",
+  "arm": "GPT-6 Luna Chat binary",
+  "data_file_hash": "4ad4c1a4b4ea2f7adc48c236715ff43f13938a98e16a58f0b584a1e0facb69e8",
+  "model_config": {
+    "arm": "GPT-6 Luna Chat binary",
+    "model_id": "gpt-6-luna",
+    "adapter": "chat",
+    "endpoint": "https://api.openai.com/v1/chat/completions",
+    "api_key_env": "OPENAI_API_KEY",
+    "auth_header": "Authorization",
+    "price_input_per_million": 0.1,
+    "price_output_per_million": 0.5,
+    "currency": "USD",
+    "billable": true,
+    "decoding": {
+      "reasoning_effort": "none",
+      "temperature": 0,
+      "max_completion_tokens": 32
+    },
+    "options": {
+      "timeout_s": 60
+    },
+    "sources": [
+      "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "https://developers.openai.com/api/docs/guides/latest-model",
+      "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
+    ],
+    "verified_at": "2026-10-17",
+    "max_input_bound_tokens": 32768
+  },
+  "model_config_hash": "472d6fb2613ad173a114202791495e9a07db2ffd5cae01debb0efd09ddad27c8",
+  "allowlisted_fields": [
+    "title"
+  ],
+  "positive_label": "inferred from relevant",
+  "label_review_sha256": null,
+  "condition": "zero-shot",
+  "prompt_hash": "46006c47a88e3c076acc2094868d8fcc5c5d630e3c2bf2968bf94ef5c31c2b1f",
+  "prompt_version": "llm_zeroshot_v0",
+  "prompt_family": "llm",
+  "example_count": 0,
+  "concurrency": 1,
+  "started_at": "2026-10-17T15:33:12.048356+00:00",
+  "finished_at": "2026-10-17T15:43:02.055893+00:00",
+  "wall_time_s": 590.0296315420419,
+  "cached_results": 0,
+  "dry_run": false,
+  "scores_sha256": "790fdfb671fab93d9514fc51973e1506a6c8e1a088f7030c00eee3af8063e844"
+}

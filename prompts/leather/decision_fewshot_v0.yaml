@@ -1,0 +1,25 @@
+version: decision-fewshot-v0
+family: decision
+condition: few-shot
+source: Barbosa et al. 2025, Figure 3, Small Leather Products
+instructions: You are labeling tool to create labels for a classification task .I will provide text data from an advertisement of a product.
+criteria:
+  relevant: if the product is a animal or a product made of any animal leather or skin.
+  not relevant: if the product is 100% synthetic with no animal involved (vegan) such as fake lather or fake skin.
+examples:
+  - text: 'Huge 62" Inside Spread Alaskan Yukon Bull Moose Shoulder Mount | eBay'
+    label: not relevant
+    explanation: The product in example 1 is a bull mount. The animal intended use is not about the leather or skin.
+  - text: Python skin For Sale in Launceston, Cornwall .
+    label: relevant
+    explanation: The product on example 2 are selling Python skin which is a product we are interested in.
+  - text: Gator leather boots, wallets and purse for sale.
+    label: relevant
+    explanation: In example 3 we have three different products all made of leather of alligator.
+  - text: Mario Buccellati, a Rare and Exceptional Italian Silver Gator For Sale at 1stDibs
+    label: not relevant
+    explanation: This example 4 is also not an animal product. The gator in the ad is made out of silver.
+  - text: Leather Recycled African Safari Bookmarks | eBay
+    label: not relevant
+    explanation: ''
+rendering: native-choice-v0

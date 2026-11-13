@@ -1,0 +1,51 @@
+{
+  "run_id": "a1ce4409ae48489eb8574a8c52f90436",
+  "git_sha": "806509f298e770495fc3e3a9c39372802111c7fd",
+  "task": "sharks",
+  "status": "complete",
+  "arm": "Microsoft-Decision-1 via OpenRouter",
+  "data_file_hash": "4ad4c1a4b4ea2f7adc48c236715ff43f13938a98e16a58f0b584a1e0facb69e8",
+  "model_config": {
+    "arm": "Microsoft-Decision-1 via OpenRouter",
+    "model_id": "microsoft/microsoft-decision-1",
+    "adapter": "system_one",
+    "endpoint": "https://openrouter.ai/api/alpha/decisions",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "auth_header": "Authorization",
+    "price_input_per_million": 0.042,
+    "price_output_per_million": 0.0,
+    "currency": "USD",
+    "billable": true,
+    "decoding": {},
+    "options": {
+      "timeout_s": 60,
+      "model_version_note": "OpenRouter listing says model weights are updated continually",
+      "api_status_note": "OpenRouter Decisions API endpoint is alpha"
+    },
+    "sources": [
+      "https://openrouter.ai/microsoft/microsoft-decision-1",
+      "https://openrouter.ai/blog/tutorials/how-to-use-jev/"
+    ],
+    "verified_at": "2026-10-14",
+    "max_input_bound_tokens": 32768
+  },
+  "model_config_hash": "1a8916cd8a3f3d2d39c0f3872ff9b7d2db53b650d762355f40c2921d1accba78",
+  "allowlisted_fields": [
+    "title",
+    "description"
+  ],
+  "positive_label": "inferred from relevant",
+  "label_review_sha256": null,
+  "condition": "zero-shot",
+  "prompt_hash": "06dc787e0fbd9a44b83c860f26e93e4b55d96e0dff4c02f23464a21f83a9c573",
+  "prompt_version": "decision-zeroshot-v0",
+  "prompt_family": "decision",
+  "example_count": 0,
+  "concurrency": 1,
+  "started_at": "2026-10-17T18:16:43.551795+00:00",
+  "finished_at": "2026-10-17T18:23:28.412237+00:00",
+  "wall_time_s": 404.8762590419501,
+  "cached_results": 0,
+  "dry_run": false,
+  "scores_sha256": "90d4a5db28f5c59c4a7b1c3d44e277c64070147ef752c4000d1733c2f8c395d0"
+}

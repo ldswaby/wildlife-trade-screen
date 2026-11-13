@@ -1,0 +1,12 @@
+version: decision-zeroshot-v0
+family: decision
+condition: zero-shot
+source: Barbosa et al. 2025, Figure 3, Sharks/Rays Products, page 5 of papers/LTS.pdf
+instructions: You are a labeling tool to create labels for a classification task. I will provide text data from a product advertisement.
+criteria:
+  relevant: >-
+    if the product is from any of those 3 animals: Shark, Ray or Chimaeras. It should be from a real animal. Not an image or plastic for example.
+  not relevant: >-
+    if the product is from any other animal that is not Shark, Ray, or Chimaeras, or if the product is 100% synthetic (vegan).For products such as teeth, if it's mentioned that is only one tooth, you can label it as this. I am only interested in more than one tooth. Also if mentions it's a fossil, we are not interested. you can label it as this.
+examples: []
+rendering: native-choice-v0

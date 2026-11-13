@@ -1,0 +1,13 @@
+arm: Microsoft-Decision-1 9B
+model_id: TODO_AZURE_DEPLOYMENT_NAME
+adapter: system_one
+endpoint: https://TODO_RESOURCE_ENDPOINT/providers/microsoft/v1/systemone
+api_key_env: AZURE_API_KEY
+auth_header: api-key
+price_input_per_million: 0.042
+price_output_per_million: 0.0
+verified_at: '2026-10-13'
+sources:
+  - https://commandline.microsoft.com/microsoft-decision-1-model-foundry/
+  - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-microsoft-decision
+decoding: {}

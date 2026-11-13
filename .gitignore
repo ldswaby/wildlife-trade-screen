@@ -1,0 +1,37 @@
+/data/*
+!/data/birds_processed.csv
+!/data/validation_animals.csv
+!/data/validation_sharks.csv
+!/data/README.md
+/outputs/
+/.cache/
+/.venv/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.DS_Store
+.env
+.env.*
+/papers/
+/build/
+/dist/
+/prompts/sharks/sandbox.txt
+/report/**
+!/report/**/
+!/report/**/*.md
+!/report/selection.yaml
+/report/**/backups/
+/report/**/.backups/
+/report/**/*.bak*
+/report/**/* 2.md
+
+# Archived dataset discussions remain local only.
+/report/results/*/commentary.md
+
+# Local authoring instructions, verification notes and editor copies.
+AGENTS.md
+/docs/VERIFICATION.md
+/docs/GUI_FUTURE.md
+/tests/* 2.py

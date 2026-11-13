@@ -1,0 +1,46 @@
+source: Barbosa et al. 2025, Tables 2 and 5
+task: leather
+metric_convention: uncertain
+rows:
+  - arm: ACTL text
+    task: leather
+    input_modality: text
+    accuracy: 0.820
+    published_precision: 0.722
+    published_recall: 0.954
+    published_f1: 0.822
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; P/R/F1 averaging uncertain'
+  - arm: LTS-text
+    task: leather
+    input_modality: text
+    accuracy: 0.854
+    published_precision: 0.858
+    published_recall: 0.854
+    published_f1: 0.855
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2 and Table 5; P/R/F1 averaging uncertain'
+  - arm: ACTL text-image
+    task: leather
+    input_modality: text-image
+    accuracy: 0.872
+    published_precision: 0.863
+    published_recall: 0.839
+    published_f1: 0.851
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; image input differs from text-only measured arms; metric convention uncertain'
+  - arm: LTS text-image
+    task: leather
+    input_modality: text-image
+    accuracy: 0.946
+    published_precision: 0.913
+    published_recall: 0.968
+    published_f1: 0.940
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; image input differs from title-only measured arms; metric convention uncertain'
+  - arm: GPT-4 zero-shot
+    task: leather
+    input_modality: text
+    published_f1: 0.850
+    provenance: 'published; GPT-4 tuning unestablished'
+    note: 'Table 5 F1 only; exact prompt condition and model snapshot uncertain'

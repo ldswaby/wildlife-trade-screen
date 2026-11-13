@@ -1,0 +1,15 @@
+arm: d3 27B
+model_id: vllm-sr/d3
+adapter: system_one
+endpoint: http://localhost:8899/v1/systemone
+billable: false
+price_input_per_million: null
+price_output_per_million: null
+verified_at: '2026-10-13'
+sources:
+  - https://huggingface.co/vllm-sr/d3
+  - https://huggingface.co/vllm-sr/d3/blob/main/d3_server.py
+options:
+  deployment_todo: TODO provision and pin the local d3 server separately
+  infrastructure_cost: unknown; local GPU/energy costs are not token API prices
+decoding: {}

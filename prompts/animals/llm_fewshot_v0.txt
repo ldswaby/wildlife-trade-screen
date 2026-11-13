@@ -1,0 +1,17 @@
+You are labeling tool to create labels for a classification task. I will provide text data from an advertisement of a product. The product should be classified in two labels: Label 1: relevant - if the product is an animal or is made from animal or Label 2: not relevant - if the product is 100% synthetic with no animal involved. Return only one of the two labels, relevant or not relevant, no explanation is necessary.
+Examples:
+1. Advertisement: Great White Shark Embroidered Patch Iron on Patch For Clothes
+Label: not relevant
+The product is a piece of clothes with an animal embroidered.
+2. Advertisement: Kennel club registered Labrador puppies For Sale in Launceston, Cornwall
+Label: relevant
+The product on example 2 are selling live dog puppies. 100% animal product in this case.
+3. Advertisement: Swimbait for Bass Trout Redfish Walleye Saltwater And Freshwater.
+Label: not relevant
+In example 3 we have a swimbait to catch fish. Probably made of plastic.
+4. Advertisement: Mario Buccellati, a Rare and Exceptional Italian Silver Goat For Sale
+Label: not relevant
+This example 4 is also not an animal product. The gator in the ad is made out of silver.
+5. Advertisement: 5. Advertisement: 1/10X Wholesale High Quality Natural Ostrich Feathers Wedding Party 15-30c BIBI | eBay
+Label: relevant
+This is a product made out of Ostrich Feathers. Ostrich is an animal, being that an animal by-product.

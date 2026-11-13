@@ -1,0 +1,21 @@
+advert_id,title,description,label,relevant,seller,url
+synthetic-00,Synthetic research fixture item 00,Synthetic description 00,1,animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-01,Synthetic research fixture item 01,Synthetic description 01,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-02,Synthetic research fixture item 02,Synthetic description 02,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-03,Synthetic research fixture item 03,Synthetic description 03,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-04,Synthetic research fixture item 04,Synthetic description 04,1,animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-05,Synthetic research fixture item 05,Synthetic description 05,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-06,Synthetic research fixture item 06,Synthetic description 06,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-07,Synthetic research fixture item 07,Synthetic description 07,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-08,Synthetic research fixture item 08,Synthetic description 08,1,animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-09,Synthetic research fixture item 09,Synthetic description 09,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-10,Synthetic research fixture item 10,Synthetic description 10,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-11,Synthetic research fixture item 11,Synthetic description 11,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-12,Synthetic research fixture item 12,Synthetic description 12,1,animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-13,Synthetic research fixture item 13,Synthetic description 13,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-14,Synthetic research fixture item 14,Synthetic description 14,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-15,Synthetic research fixture item 15,Synthetic description 15,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-16,Synthetic research fixture item 16,Synthetic description 16,1,animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-17,Synthetic research fixture item 17,Synthetic description 17,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-18,Synthetic research fixture item 18,Synthetic description 18,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL
+synthetic-19,Synthetic research fixture item 19,Synthetic description 19,0,not animal origin,DO_NOT_SEND_SELLER,DO_NOT_SEND_URL

@@ -1,0 +1,9 @@
+arm: Fake (synthetic smoke test)
+model_id: fake-v1
+adapter: fake
+endpoint: null
+billable: false
+price_input_per_million: 0
+price_output_per_million: 0
+options:
+  seed: 7

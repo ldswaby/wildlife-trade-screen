@@ -1,0 +1,46 @@
+{
+  "run_id": "f726603cd7544e80866d3612769d8925",
+  "git_sha": "182ef585ba84ff9183c05f0a7167238147c7048b",
+  "task": "birds",
+  "status": "complete",
+  "arm": "GPT-6 Luna Decisions",
+  "data_file_hash": "5dc76882aa0b9ab67b078ac9493fd004cbf6325b2dc030727ed65e839f03af77",
+  "model_config": {
+    "arm": "GPT-6 Luna Decisions",
+    "model_id": "gpt-6-luna",
+    "adapter": "openai_decisions",
+    "endpoint": "https://api.openai.com/v1/decisions",
+    "api_key_env": "OPENAI_API_KEY",
+    "auth_header": "Authorization",
+    "price_input_per_million": 0.1,
+    "price_output_per_million": 0.0,
+    "currency": "USD",
+    "billable": true,
+    "decoding": {},
+    "options": {},
+    "sources": [
+      "https://developers.openai.com/api/docs/guides/decisions",
+      "https://developers.openai.com/api/reference/resources/decisions/methods/create"
+    ],
+    "verified_at": "2026-10-13",
+    "max_input_bound_tokens": 32768
+  },
+  "model_config_hash": "8c89596f3439661367efc65f6659b07679f9b73b83671688a48ac1ab8f2ee3bd",
+  "allowlisted_fields": [
+    "title_and_desc"
+  ],
+  "positive_label": "1",
+  "label_review_sha256": null,
+  "condition": "zero-shot",
+  "prompt_hash": "4b60a9e26d7e8e563cda899981c4cb6fe85283f04d6d189f046ad68c1fe832ab",
+  "prompt_version": "decision-zeroshot-v0",
+  "prompt_family": "decision",
+  "example_count": 0,
+  "concurrency": 16,
+  "started_at": "2026-10-21T22:07:36.631150+00:00",
+  "finished_at": "2026-10-21T22:07:43.762992+00:00",
+  "wall_time_s": 7.148806375000277,
+  "cached_results": 16407,
+  "dry_run": false,
+  "scores_sha256": "4c31e4461d31ce0fc5627e1686ce9e12ac339f91475f58b04f9a574d43a09afd"
+}

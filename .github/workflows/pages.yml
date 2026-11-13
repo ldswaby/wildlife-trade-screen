@@ -1,0 +1,67 @@
+name: Verify and publish project website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            docs/requirements-tested.txt
+      - name: Install verified dependencies
+        run: python -m pip install -e '.[dev]' -c docs/requirements-tested.txt
+      - name: Check maintained code offline
+        run: |
+          pytest -q
+          ruff check src tests site scripts
+          ruff format --check src tests site scripts
+          mypy src tests site scripts
+          node --check site/site.js
+          node --check site/report.js
+          node --check site/charts.js
+          node --check site/summary.js
+          bash -n run_full_factorial.sh run_description_comparisons.sh
+          git diff --check
+      - name: Rebuild and validate recorded results without inference
+        run: |
+          python site/build.py build
+          python scripts/export_aggregate_results.py --output build/aggregate-validation.csv
+          cmp results/aggregate-results.csv build/aggregate-validation.csv
+      - name: Upload only the generated website
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

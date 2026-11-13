@@ -1,0 +1,22 @@
+arm: d3 GGUF Q4_K_M (local)
+model_id: ggml-org/vllm-d3-GGUF:Q4_K_M
+adapter: system_one
+endpoint: http://127.0.0.1:8080/v1/systemone
+billable: false
+max_input_bound_tokens: 20000
+price_input_per_million: null
+price_output_per_million: null
+verified_at: '2026-10-15'
+sources:
+  - https://huggingface.co/vllm-sr/d3
+  - https://huggingface.co/ggml-org/vllm-d3-GGUF
+  - https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md
+options:
+  gguf_repo_revision: de9670136f5ddd83e677c89ce041d5b9bb3b0dcb
+  gguf_file: vllm-d3-Q4_K_M.gguf
+  quantization: Q4_K_M
+  runtime: upstream llama.cpp source build with bundled ggml and Metal
+  runtime_commit: 3e4dfa8f39f904e681737d9f512a6e6338d848aa
+  infrastructure_cost: unknown; local energy and hardware costs are not token API prices
+  timeout_s: 180
+decoding: {}

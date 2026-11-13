@@ -1,0 +1,18 @@
+arm: Perplexity Decider v1.1 27B
+model_id: perplexity-ai/pplx-decider-v1.1-27b
+adapter: perplexity_local
+endpoint: null
+billable: false
+price_input_per_million: null
+price_output_per_million: null
+verified_at: '2026-10-13'
+sources:
+  - https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b
+  - https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b/blob/main/source/src/autojev/model.py
+options:
+  checkpoint: TODO_LOCAL_CHECKPOINT_DIRECTORY
+  device: cuda
+  environment_todo: TODO Python 3.12+ with the checkpoint's pinned requirements and autojev on PYTHONPATH
+  hosted_endpoint: TODO not verified; do not substitute causal Chat Completions
+  infrastructure_cost: unknown
+decoding: {}

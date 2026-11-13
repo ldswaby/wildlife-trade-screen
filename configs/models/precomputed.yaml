@@ -1,0 +1,9 @@
+arm: Imported LTS probabilities
+model_id: authors-probabilities-TODO-version
+adapter: precomputed
+billable: false
+price_input_per_million: null
+price_output_per_million: null
+options:
+  path: data/lts_probabilities.csv
+  score_type: native_prob

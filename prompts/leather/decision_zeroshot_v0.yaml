@@ -1,0 +1,10 @@
+version: decision-zeroshot-v0
+family: decision
+condition: zero-shot
+source: Barbosa et al. 2025, Figure 3, Small Leather Products
+instructions: You are labeling tool to create labels for a classification task .I will provide text data from an advertisement of a product.
+criteria:
+  relevant: if the product is a animal or a product made of any animal leather or skin.
+  not relevant: if the product is 100% synthetic with no animal involved (vegan) such as fake lather or fake skin.
+examples: []
+rendering: native-choice-v0

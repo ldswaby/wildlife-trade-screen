@@ -1,0 +1,10 @@
+arm: Fake binary
+model_id: fake-binary-v1
+adapter: fake
+endpoint: null
+billable: false
+price_input_per_million: 0
+price_output_per_million: 0
+options:
+  seed: 7
+  binary: true

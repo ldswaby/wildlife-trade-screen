@@ -1,0 +1,46 @@
+{
+  "run_id": "439a05eef7154e68afc4b36ccc0ac241",
+  "git_sha": "96ab323575d55ddb832fb4f2d869d2dd290ed0c7",
+  "task": "animals",
+  "status": "incomplete",
+  "arm": "GPT-6 Luna Decisions",
+  "data_file_hash": "92f9858d45c3fb432fdbfb49e2d32e8db240dac8b0d1bdb4016f5f986ea2ef52",
+  "model_config": {
+    "arm": "GPT-6 Luna Decisions",
+    "model_id": "gpt-6-luna",
+    "adapter": "openai_decisions",
+    "endpoint": "https://api.openai.com/v1/decisions",
+    "api_key_env": "OPENAI_API_KEY",
+    "auth_header": "Authorization",
+    "price_input_per_million": 0.1,
+    "price_output_per_million": 0.0,
+    "currency": "USD",
+    "billable": true,
+    "decoding": {},
+    "options": {},
+    "sources": [
+      "https://developers.openai.com/api/docs/guides/decisions",
+      "https://developers.openai.com/api/reference/resources/decisions/methods/create"
+    ],
+    "verified_at": "2026-10-13",
+    "max_input_bound_tokens": 32768
+  },
+  "model_config_hash": "0f5923ea2a4419d1479cebaabcd13e4bc3226af4d4ce09b270b908edeb440744",
+  "allowlisted_fields": [
+    "title"
+  ],
+  "positive_label": "1",
+  "label_review_sha256": null,
+  "condition": "few-shot",
+  "prompt_hash": "9b402bb4d665c01ed72ef7aa96037b4fea47c77ba981b08929e475bc35230851",
+  "prompt_version": "decision-fewshot-v0",
+  "prompt_family": "decision",
+  "example_count": 5,
+  "concurrency": 1,
+  "started_at": "2026-10-19T17:33:29.120851+00:00",
+  "finished_at": "2026-10-19T17:33:29.903401+00:00",
+  "wall_time_s": 0.8020332918968052,
+  "cached_results": 499,
+  "dry_run": false,
+  "scores_sha256": "fbe379109a2ba365c149a44ca200c057a32c4bebb1aa59765c03396a0a30976c"
+}

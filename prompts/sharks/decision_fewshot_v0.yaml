@@ -1,0 +1,29 @@
+version: decision-fewshot-v0
+family: decision
+condition: few-shot
+source: Barbosa et al. 2025, Figure 3, Sharks/Rays Products, page 5 of papers/LTS.pdf
+instructions: You are a labeling tool to create labels for a classification task. I will provide text data from a product advertisement.
+criteria:
+  relevant: >-
+    if the product is from any of those 3 animals: Shark, Ray or Chimaeras. It should be from a real animal. Not an image or plastic for example.
+  not relevant: >-
+    if the product is from any other animal that is not Shark, Ray, or Chimaeras, or if the product is 100% synthetic (vegan).For products such as teeth, if it's mentioned that is only one tooth, you can label it as this. I am only interested in more than one tooth. Also if mentions it's a fossil, we are not interested. you can label it as this.
+examples:
+- text: Great White Shark Embroidered Patch Iron on Patch For Clothes
+  label: not relevant
+  explanation: The product is a piece of clothes with an animal embroidered.
+- text: (sj480-50) 6" White Tip Reef SHARK jaw love sharks jaws teeth Triaenodon obesus
+  label: relevant
+  explanation: The product in example 2 is selling a shark jaw. 100% animal product in this case.
+- text: Wholesale Group - 20 Perfect 5/8" Modern Tiger Shark Teeth
+  label: relevant
+  explanation: In example 3 we have a set of 20 teeth. In this case is True.
+- text: Mario Buccellati, a Rare and Exceptional Italian Silver Goat For Sale at 1stDibs
+  label: not relevant
+  explanation: Example 4 is also not an animal product. The goat in the ad is made out of silver and it's
+    not the animal we are interested.
+- text: HUGE SHARK TOOTH FOSSIL 3&1/4" GREAT Serrations Upper Principal
+  label: not relevant
+  explanation: This is a product from a shark, but is not an animal product because it's only one tooth
+    and it's a fossil.
+rendering: native-choice-v0

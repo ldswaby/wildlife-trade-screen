@@ -1,0 +1,55 @@
+{
+  "run_id": "ad0da74cc2a849f6b1e30bd482a58e19",
+  "git_sha": "806509f298e770495fc3e3a9c39372802111c7fd",
+  "task": "sharks",
+  "status": "complete",
+  "arm": "d3 GGUF Q4_K_M (local)",
+  "data_file_hash": "4ad4c1a4b4ea2f7adc48c236715ff43f13938a98e16a58f0b584a1e0facb69e8",
+  "model_config": {
+    "arm": "d3 GGUF Q4_K_M (local)",
+    "model_id": "ggml-org/vllm-d3-GGUF:Q4_K_M",
+    "adapter": "system_one",
+    "endpoint": "http://127.0.0.1:8080/v1/systemone",
+    "api_key_env": null,
+    "auth_header": "Authorization",
+    "price_input_per_million": null,
+    "price_output_per_million": null,
+    "currency": "USD",
+    "billable": false,
+    "decoding": {},
+    "options": {
+      "gguf_repo_revision": "de9670136f5ddd83e677c89ce041d5b9bb3b0dcb",
+      "gguf_file": "vllm-d3-Q4_K_M.gguf",
+      "quantization": "Q4_K_M",
+      "runtime": "upstream llama.cpp source build with bundled ggml and Metal",
+      "runtime_commit": "3e4dfa8f39f904e681737d9f512a6e6338d848aa",
+      "infrastructure_cost": "unknown; local energy and hardware costs are not token API prices",
+      "timeout_s": 180
+    },
+    "sources": [
+      "https://huggingface.co/vllm-sr/d3",
+      "https://huggingface.co/ggml-org/vllm-d3-GGUF",
+      "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+    ],
+    "verified_at": "2026-10-15",
+    "max_input_bound_tokens": 20000
+  },
+  "model_config_hash": "9b7a778e991d7e637061818464fa4235471ae9453607eba0b43645f7f0972fc5",
+  "allowlisted_fields": [
+    "title"
+  ],
+  "positive_label": "inferred from relevant",
+  "label_review_sha256": null,
+  "condition": "zero-shot",
+  "prompt_hash": "06dc787e0fbd9a44b83c860f26e93e4b55d96e0dff4c02f23464a21f83a9c573",
+  "prompt_version": "decision-zeroshot-v0",
+  "prompt_family": "decision",
+  "example_count": 0,
+  "concurrency": 1,
+  "started_at": "2026-10-17T15:11:19.219888+00:00",
+  "finished_at": "2026-10-17T15:33:12.003866+00:00",
+  "wall_time_s": 1312.7907500000438,
+  "cached_results": 0,
+  "dry_run": false,
+  "scores_sha256": "192f892aa0a207454c3406b25c5fa1405576ab6faec3ed7a5f0b47653a963ec7"
+}

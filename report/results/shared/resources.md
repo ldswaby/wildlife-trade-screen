@@ -1,0 +1,3 @@
+# Figure 2. Resource usage per 1,000 adverts
+
+**Figure 2:** API charge and summed request time per 1,000 adverts across all experimental conditions for the {{ dataset_name }} dataset. The left bars show recorded external API charge in US dollars per 1,000 adverts; the right bars show summed saved request time in seconds per 1,000 adverts. Values divide saved totals by all adverts in this dataset and multiply by 1,000. Where available, metrics can be averaged across experimental conditions via the controls above such that bars show equal-weight configuration means and capped whiskers show ±1 population SD across configurations (i.e., not uncertainty or variation among individual requests). Summed request-seconds are not elapsed batch time: concurrent requests overlap.

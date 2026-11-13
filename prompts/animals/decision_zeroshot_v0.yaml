@@ -1,0 +1,10 @@
+version: decision-zeroshot-v0
+family: decision
+condition: zero-shot
+source: Barbosa et al. 2025, Figure 3, Animal Products
+instructions: You are labeling tool to create labels for a classification task. I will provide text data from an advertisement of a product.
+criteria:
+  relevant: if the product is an animal or is made from animal
+  not relevant: if the product is 100% synthetic with no animal involved.
+examples: []
+rendering: native-choice-v0

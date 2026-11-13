@@ -1,0 +1,55 @@
+{
+  "run_id": "c1bcef79a97f4c03ad814e2b5a40726c",
+  "git_sha": "96ab323575d55ddb832fb4f2d869d2dd290ed0c7",
+  "task": "animals",
+  "status": "complete",
+  "arm": "d3 GGUF Q4_K_M (local)",
+  "data_file_hash": "92f9858d45c3fb432fdbfb49e2d32e8db240dac8b0d1bdb4016f5f986ea2ef52",
+  "model_config": {
+    "arm": "d3 GGUF Q4_K_M (local)",
+    "model_id": "ggml-org/vllm-d3-GGUF:Q4_K_M",
+    "adapter": "system_one",
+    "endpoint": "http://127.0.0.1:8080/v1/systemone",
+    "api_key_env": null,
+    "auth_header": "Authorization",
+    "price_input_per_million": null,
+    "price_output_per_million": null,
+    "currency": "USD",
+    "billable": false,
+    "decoding": {},
+    "options": {
+      "gguf_repo_revision": "de9670136f5ddd83e677c89ce041d5b9bb3b0dcb",
+      "gguf_file": "vllm-d3-Q4_K_M.gguf",
+      "quantization": "Q4_K_M",
+      "runtime": "upstream llama.cpp source build with bundled ggml and Metal",
+      "runtime_commit": "3e4dfa8f39f904e681737d9f512a6e6338d848aa",
+      "infrastructure_cost": "unknown; local energy and hardware costs are not token API prices",
+      "timeout_s": 180
+    },
+    "sources": [
+      "https://huggingface.co/vllm-sr/d3",
+      "https://huggingface.co/ggml-org/vllm-d3-GGUF",
+      "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+    ],
+    "verified_at": "2026-10-15",
+    "max_input_bound_tokens": 20000
+  },
+  "model_config_hash": "15a5e99139e16511492aab029006165158f8408e03a0904e08d9191b420813fe",
+  "allowlisted_fields": [
+    "title"
+  ],
+  "positive_label": "1",
+  "label_review_sha256": null,
+  "condition": "few-shot",
+  "prompt_hash": "9b402bb4d665c01ed72ef7aa96037b4fea47c77ba981b08929e475bc35230851",
+  "prompt_version": "decision-fewshot-v0",
+  "prompt_family": "decision",
+  "example_count": 5,
+  "concurrency": 1,
+  "started_at": "2026-10-19T17:33:27.505064+00:00",
+  "finished_at": "2026-10-19T17:33:28.292641+00:00",
+  "wall_time_s": 0.8582686658482999,
+  "cached_results": 499,
+  "dry_run": false,
+  "scores_sha256": "4073cb364ab7385f7ba5b3e80fa804c7e201c8582e3ef9fbeec8ebe2748314bf"
+}

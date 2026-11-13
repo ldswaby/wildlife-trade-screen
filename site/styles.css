@@ -1,0 +1,238 @@
+:root {
+  color-scheme: dark;
+  --background: #181818;
+  --surface: #202222;
+  --control: #262929;
+  --selected: #303232;
+  --text: #ededed;
+  --body-text: #c6c6c6;
+  --muted: #abadaf;
+  --border: #414444;
+  --active-border: #888;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 16px/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-underline-offset: .22em; }
+a:hover { color: #fff; }
+/* Quiet inline references without changing navigation or button styling. */
+.report-page :where(p, li, dd, td) a[href] {
+  color: #dedede;
+  text-decoration-color: #747474;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  text-decoration-skip-ink: auto;
+}
+.report-page :where(p, li, dd, td) a[href]:is(:hover, :focus-visible) {
+  color: #f5f5f5;
+  text-decoration-color: #bdbdbd;
+}
+.report-page :where(p, li, dd, td) a[href] strong { color: inherit; }
+a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.site-header { position: sticky; top: 0; z-index: 10; background: var(--control); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1560px; margin: auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
+.brand { font-size: 14px; font-weight: 600; text-decoration: none; }
+.site-header nav { display: flex; gap: 32px; }
+.site-header nav a { position: relative; padding: 22px 0; text-decoration: none; color: var(--muted); }
+.site-header nav a[aria-current="page"] { color: var(--text); }
+.site-header nav a[aria-current="page"]::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #ededed; }
+.publication { max-width: 1560px; margin: auto; padding: 15px 40px 0; font-size: 12px; color: var(--muted); }
+.page-layout { max-width: 1560px; margin: auto; padding: 45px 40px 90px; display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 64px; align-items: start; }
+main { min-width: 0; color: var(--body-text); }
+h1, h2, h3, h4, h5, h6 { color: var(--text); }
+h1, h2, h3 { font-family: inherit; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; }
+h1 { font-size: clamp(30px, 3.3vw, 42px); margin: 0 0 14px; }
+h2 { font-size: 26px; margin: 48px 0 16px; }
+h3 { font-size: 21px; margin: 32px 0 14px; }
+p { margin: 0 0 20px; }
+.lead { font-size: 19px; color: var(--muted); }
+li { margin: 7px 0; }
+strong { color: var(--text); font-weight: 600; }
+.notice { border: 1px solid var(--border); border-radius: 8px; padding: 19px 22px; margin: 30px 0; color: var(--muted); }
+.subtle, .scope { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.reference-links { padding-left: 20px; }
+.page-index { position: sticky; top: 110px; max-height: calc(100vh - 130px); overflow-y: auto; min-width: 0; font-size: 13px; line-height: 1.55; }
+.page-index details > summary { color: var(--text); list-style: none; font-weight: 600; padding-bottom: 14px; pointer-events: none; }
+.page-index summary::-webkit-details-marker { display: none; }
+.page-index nav { display: flex; flex-direction: column; border-left: 1px solid var(--border); }
+.page-index a { color: var(--muted); text-decoration: none; padding: 7px 0 7px 18px; margin-left: -1px; border-left: 2px solid transparent; overflow-wrap: anywhere; }
+.page-index a[aria-current="location"] { color: #fff; border-left-color: #eee; }
+.page-index a:hover { color: #fff; }
+.page-index a.index-subsection { padding-left: 27px; font-size: 12px; }
+.site-footer { border-top: 1px solid var(--border); padding: 25px 40px; color: var(--muted); font-size: 12px; }
+.skip { position: fixed; z-index: 20; top: -100px; left: 15px; background: #fff; color: #000; padding: 8px 16px; }
+.skip:focus { top: 8px; }
+/* These controls use the same visual language on the Report and Abstract. */
+button, select { font: inherit; color: var(--text); background: var(--control); border: 1px solid var(--border); border-radius: 5px; padding: 7px 12px; }
+button { cursor: pointer; }
+button:hover { background: var(--selected); }
+select { max-width: 100%; min-width: 145px; }
+.tab[aria-selected="true"], .plot-tools [aria-pressed="true"] { background: var(--selected); color: var(--text); border-color: var(--active-border); }
+.dataset-panel { padding-top: 10px; min-width: 0; }
+.plot-tools { display: flex; gap: 8px; margin-top: 12px; }
+.chart { width: 100%; height: 620px; }
+.plot-legend { color: var(--text); display: grid; gap: 12px; margin: 8px 0 18px; }
+.legend-swatch { width: 22px; height: 8px; border-top: 3px solid; flex: none; margin-top: 7px; }
+.legend-marker { width: 22px; flex: none; text-align: center; font-size: 19px; font-weight: 700; line-height: 1; margin-top: 1px; }
+.exports, .resource-exports { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+.resource-panel { background: var(--surface); margin: 28px 0; padding: 16px; border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; }
+.resource-panel h3 { margin-top: 0; }
+.resource-chart { width: 100%; min-width: 820px; }
+.table-wrap { width: 100%; overflow-x: auto; }
+table { color: var(--text); border-collapse: collapse; width: 100%; font-size: 13px; }
+caption { text-align: left; font-weight: 600; font-size: 18px; padding: 12px 0; color: var(--text); white-space: normal; }
+th, td { text-align: left; padding: 9px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { background: var(--control); }
+tr.published-row td { background: var(--selected); }
+.results-table tbody td strong { text-decoration: underline; text-underline-offset: .18em; }
+.table-guide dl { display: grid; grid-template-columns: minmax(130px,180px) 1fr; gap: 8px 16px; }
+.table-guide dt { color: var(--text); font-weight: 600; }
+.table-guide dd { margin: 0; color: inherit; }
+main summary { color: var(--text); }
+main details { margin-top: 18px; overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+@media (max-width: 1050px) {
+  .page-layout { gap: 32px; grid-template-columns: minmax(0, 1fr) 175px; padding-inline: 25px; }
+  .header-inner, .publication { padding-inline: 25px; }
+}
+@media (max-width: 800px) {
+  html { scroll-padding-top: 140px; }
+  .header-inner { padding: 14px 20px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .site-header nav { align-self: center; }
+  .site-header nav a { padding: 12px 0; }
+  .publication { padding: 12px 20px 0; }
+  .page-layout { display: flex; flex-direction: column; padding: 22px 20px 55px; gap: 28px; }
+  .page-layout main { width: 100%; order: 1; }
+  .page-index { position: static; max-height: none; overflow-y: visible; width: 100%; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .page-index details > summary { pointer-events: auto; cursor: pointer; padding-bottom: 8px; }
+  .page-index summary::after { content: " +"; }
+  .page-index details[open] summary::after { content: " −"; }
+  .table-guide dl { display: block; }
+  .table-guide dd { margin: 0 0 12px; }
+  .site-footer { padding-inline: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Shared content column for both website pages. */
+.page-layout main { max-width: none; margin: 0; padding: 0; min-height: 0; background: var(--background); }
+/* Report-only structure and controls; Abstract retains its existing layout. */
+.report-page .segment-scroll { display: flex; overflow-x: auto; max-width: 100%; margin: 24px 0; padding: 3px; }
+.report-page .segmented-tabs { display: inline-flex; flex: none; margin-inline: auto; padding: 4px; border: 1px solid var(--border); border-radius: 999px; gap: 4px; }
+.report-page .segment-tab { border: 1px solid transparent; border-radius: 999px; background: transparent; color: var(--text); padding: 10px 22px; white-space: nowrap; }
+.report-page .segment-tab[aria-selected="true"] { background: var(--selected); color: #fff; border-color: var(--active-border); }
+.report-page .segment-tab:hover { background: var(--selected); }
+.report-page [role="tabpanel"]:focus-visible { outline: 2px solid #aaa; outline-offset: 4px; }
+.report-page h4 { font: 600 20px/1.4 system-ui,sans-serif; margin: 28px 0 14px; }
+.report-page .roc-selection { margin: 24px 0; }
+.report-page .selection-columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.report-page fieldset { min-width: 0; margin: 0; padding: 14px; border: 1px solid var(--border); border-radius: 10px; }
+.report-page legend { color: var(--text); padding: 0 7px; font-weight: 600; }
+.report-page .selection-box { color: var(--text); display: flex; align-items: flex-start; gap: 10px; border: 1px solid var(--border); background: var(--control); border-radius: 6px; padding: 9px 12px; margin-bottom: 8px; font-size: 14px; line-height: 1.5; cursor: pointer; }
+.report-page .selection-box:has(input:checked) { background: var(--selected); border-color: var(--active-border); }
+.report-page .selection-box:has(input:disabled) { color: var(--muted); cursor: default; }
+.report-page .selection-box input { flex: none; margin: 4px 0 0; accent-color: var(--text); }
+.report-page .baseline-selection { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.report-page .baseline-selection .selection-box { margin: 0; }
+.report-page .baseline-selection p { font-size: 14px; margin: 0; color: var(--muted); }
+.report-page .selection-message { color: var(--muted); font-size: 14px; margin: 12px 0; }
+.report-page .selection-message:empty { display: none; }
+.report-page .selection-guide { margin-top: 12px; }
+.report-page .plot-legend { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 20px; }
+.report-page .readonly-legend-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 1.45; }
+.page-index a.index-detail { padding-left: 34px; font-size: 12px; }
+@media (max-width: 700px) {
+  .report-page .selection-columns { grid-template-columns: 1fr; gap: 12px; }
+  .report-page .plot-legend { grid-template-columns: 1fr; }
+  .report-page .segment-tab { padding: 9px 16px; font-size: 14px; }
+}
+
+/* One dataset workspace, with shared research sections outside it. */
+.dataset-workspace { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 0 24px 28px; margin-top: 24px; min-width: 0; }
+.dataset-workspace .dataset-panel > section > h3 { margin-top: 36px; }
+.prompt-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.prompt-options .selection-box { margin-bottom: 8px; }
+.prompt-version { display: block; margin: 15px 0; }
+.prompt-version select { display: block; width: 100%; margin-top: 6px; }
+.prompt-source { min-width: 0; }
+.prompt-source pre { color: var(--text); white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: auto; max-width: 100%; padding: 20px; background: var(--control); border: 1px solid var(--border); border-radius: 8px; font: 13px/1.7 ui-monospace,monospace; }
+.prompt-source pre:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.prompt-source details { color: var(--muted); font-size: 12px; }
+.prompt-unavailable { border: 1px solid var(--border); padding: 18px; border-radius: 8px; }
+.figure-commentary { margin: 22px 0 34px; }
+@media (max-width: 800px) {
+  .dataset-workspace { padding: 0 12px 20px; border-radius: 14px; }
+  .prompt-options { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .prompt-source pre { padding: 12px; }
+}
+
+/* Keep dataset summaries readable without widening the page on phones. */
+.class-distribution { margin: 20px 0; background: var(--surface); }
+.class-distribution caption { padding: 12px; }
+.class-distribution th, .class-distribution td { padding: 12px; }
+.class-distribution:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+.dataset-anchor { display: block; scroll-margin-top: 100px; }
+
+.result-figure { margin: 32px 0; min-width: 0; }
+.result-caption { color: var(--muted); margin-top: 18px; font-style: italic; font-size: 0.9rem; line-height: 1.65; }
+.result-caption p:first-child { margin-top: 0; }
+.results-table .table-guide > p:last-child,
+.resource-panel .caption-body > p:last-child { font-size: 14px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* One shared card encloses the Models selector and its selected details. */
+.report-page [data-tab-group="models"] { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; min-width: 0; }
+.report-page [data-tab-group="models"] > .segment-scroll { margin: 0 0 24px; }
+.model-card { min-width: 0; overflow-wrap: anywhere; }
+.model-card > p:first-child { margin-top: 0; }
+.model-card > p:last-child { margin-bottom: 0; }
+.model-card code { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 800px) { .report-page [data-tab-group="models"] { padding: 16px; } }
+
+.comparison-caveats { border: 1px solid #c6a249; border-radius: 10px; padding: 18px; background: #15120b; }
+.comparison-caveats > summary { cursor: pointer; color: #edcc79; font-size: 21px; }
+.comparison-caveats > summary h3 { color: inherit; display: inline; margin: 0; font-size: inherit; }
+.caveat-icon { display: inline-flex; align-items: center; justify-content: center; width: 1.2em; height: 1.2em; border: 1px solid currentColor; border-radius: 50%; font-weight: 700; margin-inline: 6px; }
+.comparison-caveats code { white-space: normal; overflow-wrap: anywhere; }
+.context-link-unavailable { color: var(--muted); }
+.comparison-caveats > ul { padding-inline-start: 24px; }
+.comparison-caveats > ul > li { margin-block: 18px; }
+.display-equation { display: block; max-width: 100%; overflow-x: auto; margin-block: 20px; padding-block: 6px; }
+.equation-label { color: var(--text); display: block; font-weight: 600; margin-bottom: 12px; }
+.display-equation math { font-size: 1.05em; }
+
+/* Four aligned summary panels retain their geometry on small screens. */
+.summary-figure { margin: 22px 0 32px; min-width: 0; }
+.summary-title { color: var(--text); font-size: 19px; font-weight: 600; margin-bottom: 14px; }
+.summary-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; overflow-x: auto; }
+.summary-chart { width: 100%; min-width: 1100px; }
+.summary-exports { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+
+.summary-panel:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+.report-page .table-grouping { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.report-page .table-grouping .selection-box { margin: 0; }
+.grouping-note { flex-basis: 100%; margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+.grouping-status { font-size: 14px; }
+.grouping-status:empty { display: none; }
+
+/* Provenance markers remain outside column-leader emphasis. */
+.published-origin { font-size: .75em; line-height: 0; vertical-align: super; margin-left: .1em; }
+
+/* Each index heading keeps its navigation link beside an independent disclosure. */
+.page-index .index-row { display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: start; }
+.page-index .index-row > a { grid-column: 2; grid-row: 1; padding: 7px 4px 7px 6px; min-width: 0; }
+.page-index .index-children { padding-inline-start: 12px; }
+.page-index .index-children[hidden] { display: none; }
+.page-index .index-toggle { grid-column: 1; grid-row: 1; padding: 5px 0; margin: 2px 0 0; width: 24px; min-height: 28px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; font: inherit; }
+.page-index .index-toggle:hover { color: var(--text); background: var(--surface); }
+.page-index .index-toggle span { display: inline-block; font-size: 1.25em; line-height: 0; transition: transform 120ms ease; }
+.page-index .index-toggle[aria-expanded="true"] span { transform: rotate(90deg); }
+.page-index .index-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+@media (prefers-reduced-motion: reduce) { .page-index .index-toggle span { transition: none; } }

@@ -1,0 +1,56 @@
+<div class="report-page">
+  {{ report_title }}
+  <section aria-labelledby="abstract">
+    <h2 id="abstract">Abstract</h2>
+    {{ abstract }}
+  </section>
+  <section aria-labelledby="introduction">
+    <h2 id="introduction">Introduction</h2>
+    {{ introduction }}
+  </section>
+  <section aria-labelledby="experimental-setup">
+    <h2 id="experimental-setup">Experimental setup</h2>
+    {{ experimental_setup }}
+    <h3 id="models">Models</h3>
+    {{ model_section }}
+    <h3 id="data-summary">Data</h3>
+    {{ data_summary }}
+    <h3 id="inputs">Inputs</h3>
+    {{ inputs }}
+    <h3 id="prompts">Prompts</h3>
+    {{ prompt_overview }}
+    <h3 id="problem-formulation">Problem formulation</h3>
+    {{ problem_formulation }}
+    <h3 id="evaluation">Evaluation</h3>
+    {{ evaluation }}
+    <h4 id="resources-reproducibility">Resources and reproducibility</h4>
+    {{ resources_reproducibility }}
+    <details class="comparison-caveats">
+      <summary><span class="caveat-icon" aria-hidden="true">!</span> <h3 id="limitations"><span id="published-comparison-caveats" aria-hidden="true"></span>Limitations</h3></summary>
+      {{ comparison_caveats }}
+    </details>
+  </section>
+  <section aria-labelledby="results">
+    <h2 id="results">Results</h2>
+    <div class="dataset-workspace" role="region" aria-label="Dataset experiments">
+      {{ dataset_workspace }}
+    </div>
+  </section>
+  <section aria-labelledby="overall-results">
+    <h2 id="overall-results">Results</h2>
+    {{ summary_figure }}
+    {{ overall_results }}
+  </section>
+  <section aria-labelledby="discussion">
+    <h2 id="discussion">Discussion</h2>
+    {{ discussion }}
+  </section>
+  <section aria-labelledby="conclusion">
+    <h2 id="conclusion">Conclusion</h2>
+    {{ conclusion }}
+  </section>
+  <section aria-labelledby="bibliography">
+    <h2 id="bibliography">Bibliography</h2>
+    {{ bibliography }}
+  </section>
+</div>

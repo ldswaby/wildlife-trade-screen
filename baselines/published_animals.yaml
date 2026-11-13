@@ -1,0 +1,46 @@
+source: Barbosa et al. 2025, Tables 2 and 5
+task: animals
+metric_convention: uncertain; Table 4 gives positive-class metrics for LTS text
+rows:
+  - arm: ACTL text
+    task: animals
+    input_modality: text
+    accuracy: 0.882
+    published_precision: 0.784
+    published_recall: 0.574
+    published_f1: 0.663
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; timeout after 3000 training examples; metric convention uncertain'
+  - arm: LTS-text
+    task: animals
+    input_modality: text
+    accuracy: 0.928
+    published_precision: 0.842
+    published_recall: 0.792
+    published_f1: 0.816
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; Table 4 explicitly identifies these P/R/F1 as class 1'
+  - arm: ACTL text-image
+    task: animals
+    input_modality: text-image
+    accuracy: 0.83
+    published_precision: 0.51
+    published_recall: 0.718
+    published_f1: 0.596
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; timeout after 3000 training examples; image input differs from text-only measured arms; metric convention uncertain'
+  - arm: LTS text-image
+    task: animals
+    input_modality: text-image
+    accuracy: 0.921
+    published_precision: 0.800
+    published_recall: 0.732
+    published_f1: 0.765
+    provenance: 'published; trained model developed with validation'
+    note: 'Table 2; image input differs from title-only measured arms; metric convention uncertain'
+  - arm: GPT-4 zero-shot
+    task: animals
+    input_modality: text
+    published_f1: 0.827
+    provenance: 'published; GPT-4 tuning unestablished'
+    note: 'Table 5 F1 only; exact prompt condition and model snapshot uncertain'
