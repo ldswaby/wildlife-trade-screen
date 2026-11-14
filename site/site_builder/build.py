@@ -8,6 +8,8 @@ import shutil
 from dataclasses import replace
 from pathlib import Path
 
+import plotly.offline
+
 from wildlife_screening.snapshots import _read_selection, discover_runs
 
 from .content import (
@@ -97,11 +99,12 @@ def prepare_site(root: Path = ROOT) -> Path:
         )
         for panel in panels
     ]
+    summary = summary_data(panels, data)
     arranged = report_content(
         directory,
         panels,
         (root / "site" / "report.html").read_text(encoding="utf-8"),
-        summary_figure(summary_data(panels, data), descriptions),
+        summary_figure(summary, descriptions),
     )
     rendered = _html_document(
         arranged, json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
@@ -109,9 +112,19 @@ def prepare_site(root: Path = ROOT) -> Path:
     template = (root / "site" / "index.html").read_text(encoding="utf-8")
     if template.count("{{ site_content }}") != 1:
         raise ValueError("Expected one site_content marker in site/index.html")
-    index = template.replace(
-        "{{ site_content }}", website_frame(prose(directory, "background.md"), "Overview")
-    )
+    background = prose(directory, "background.md")
+    marker = "<p>{{ summary_figure }}</p>"
+    if "{{ summary_figure }}" in background:
+        if background.count(marker) != 1 or background.count("{{ summary_figure }}") != 1:
+            raise ValueError("background.md: expected one {{ summary_figure }} on its own line")
+        background = background.replace(marker, summary_figure(summary, descriptions, compact=True))
+        # Only the shared summary renderer is needed here, not the dataset controllers.
+        background += (
+            f"<script>{plotly.offline.get_plotlyjs()}</script>"
+            '<script src="report.js"></script>'
+            f"<script>{(root / 'site' / 'summary.js').read_text(encoding='utf-8')}</script>"
+        )
+    index = template.replace("{{ site_content }}", website_frame(background, "Overview"))
     for name in ("styles.css", "site.js", "report.js"):
         version = hashlib.sha256((root / "site" / name).read_bytes()).hexdigest()[:12]
         index = index.replace(f'"{name}"', f'"{name}?v={version}"')

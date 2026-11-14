@@ -281,11 +281,19 @@ def _baseline_data(panels: list[DatasetEvidence], data: dict[str, Any]) -> dict[
     }
 
 
-def summary_figure(summary: dict[str, Any], descriptions: ResultDescriptions) -> str:
-    """Render separate presentation JSON and accessible coverage, not source rows."""
+def summary_figure(
+    summary: dict[str, Any], descriptions: ResultDescriptions, *, compact: bool = False
+) -> str:
+    """Render shared summary evidence, optionally linking to the full report caption.
+
+    Args:
+        summary: Validated cross-dataset presentation data, without source rows.
+        descriptions: Authored figure titles and captions.
+        compact: Omit downloads and the values table for the Overview page.
+    """
     encoded = json.dumps(summary, ensure_ascii=False).replace("<", "\\u003c")
     rows = []
-    for metric in summary["metrics"]:
+    for metric in () if compact else summary["metrics"]:
         deviation_unit = "pp" if metric["key"] in {"balanced_accuracy", "fpr_at_95_tpr"} else "sd"
         for cell in metric["cells"]:
             value = (
@@ -367,6 +375,22 @@ def summary_figure(summary: dict[str, Any], descriptions: ResultDescriptions) ->
             )
             + "</tr>"
         )
+    exports = (
+        '<div class="summary-exports">'
+        '<button type="button" class="summary-png">Download summary PNG</button>'
+        '<button type="button" class="summary-svg">Download summary SVG</button></div>'
+    )
+    values_table = (
+        '<details><summary>Summary values and availability</summary><div class="table-wrap">'
+        "<table><thead><tr><th>Metric</th><th>Model</th>"
+        "<th>Mean ± population SD / published estimate</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table></div></details>"
+    )
+    caption = (
+        'See full figure description <a href="report.html#summary-figure-title">here</a>.'
+        if compact
+        else descriptions.summary.body_html
+    )
     return (
         '<figure class="summary-figure" aria-labelledby="summary-figure-title">'
         '<h3 id="summary-figure-title" class="summary-title">'
@@ -375,14 +399,9 @@ def summary_figure(summary: dict[str, Any], descriptions: ResultDescriptions) ->
         'aria-label="Scrollable cross-dataset summary figure">'
         '<div class="summary-chart" role="group" '
         'aria-labelledby="summary-figure-title" aria-describedby="summary-guide"></div></div>'
-        '<div class="summary-exports">'
-        '<button type="button" class="summary-png">Download summary PNG</button>'
-        '<button type="button" class="summary-svg">Download summary SVG</button></div>'
-        '<figcaption class="result-caption" id="summary-guide">'
-        f"{descriptions.summary.body_html}</figcaption>"
-        '<details><summary>Summary values and availability</summary><div class="table-wrap">'
-        "<table><thead><tr><th>Metric</th><th>Model</th>"
-        "<th>Mean ± population SD / published estimate</th></tr></thead>"
-        f"<tbody>{''.join(rows)}</tbody></table></div></details>"
-        f'<script id="summary-data" type="application/json">{encoded}</script></figure>'
+        + ("" if compact else exports)
+        + '<figcaption class="result-caption" id="summary-guide">'
+        f"{caption}</figcaption>"
+        + ("" if compact else values_table)
+        + f'<script id="summary-data" type="application/json">{encoded}</script></figure>'
     )

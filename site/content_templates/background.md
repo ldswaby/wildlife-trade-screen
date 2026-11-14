@@ -14,6 +14,8 @@ The study compares three decision models and a contemporary chat model on histor
 
 Decision models delivered competitive screening performance at low hosted API costs. The locally deployed, quantised `d3` model was particularly consistent under zero-shot conditions. Comparisons with published baselines remain conditional on differences in data, inputs and evaluation methods.
 
+{{ summary_figure }}
+
 ## Explore and reproduce
 
 - **[Interactive report](report.html):** methods, dataset tabs, prompt viewer, results, limitations and downloadable figures.

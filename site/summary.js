@@ -167,8 +167,10 @@
           width,height});
       } finally {Plotly.purge(figure);figure.remove();}
     }
-    document.querySelector('.summary-png').onclick=()=>download('png');
-    document.querySelector('.summary-svg').onclick=()=>download('svg');
+    for(const format of ['png','svg']) {
+      const button=document.querySelector('.summary-'+format);
+      if(button) button.onclick=()=>download(format);
+    }
     await ready;
   }
   const api={plotSpec,mount};

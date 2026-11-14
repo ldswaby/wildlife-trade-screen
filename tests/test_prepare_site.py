@@ -1,6 +1,7 @@
 """Verify report authoring, result imports and allowlisted site packaging offline."""
 
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,42 @@ from site_builder.selection import import_selection
 from test_interactive_report import _invented_csv, _run
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_overview_reuses_summary_data_without_report_caption_or_controls(tmp_path: Path) -> None:
+    directory = assets(tmp_path)
+    (directory / "background.md").write_text(
+        "## The study\n\nInvented local edit.\n\n{{ summary_figure }}\n\n## Next steps"
+    )
+    output = prepare_site(tmp_path)
+    overview = (output / "index.html").read_text()
+    report = (output / "report.html").read_text()
+    pattern = r'<script id="summary-data" type="application/json">(.*?)</script>'
+    assert re.findall(pattern, overview) == re.findall(pattern, report)
+    assert len(re.findall(pattern, overview)) == 1
+    figure = overview.split('<figure class="summary-figure"')[1].split("</figure>")[0]
+    assert 'href="report.html#summary-figure-title">here</a>' in figure
+    assert "summary-png" not in figure and "summary-svg" not in figure
+    assert "Summary values and availability" not in figure
+    assert "summary-chart" in figure and "summary-figure-title" in figure
+    assert overview.index("Invented local edit.") < overview.index('<figure class="summary-figure"')
+    assert overview.index("</figure>") < overview.index("Next steps")
+    assert "{{ summary_figure }}" not in overview
+    assert 'id="study-data"' not in overview
+    assert "Download summary PNG" in report
+
+
+@pytest.mark.parametrize(
+    "marker", ["{{ summary_figure }}\n\n{{ summary_figure }}", "Text {{ summary_figure }}"]
+)
+def test_invalid_overview_marker_preserves_existing_bundle(tmp_path: Path, marker: str) -> None:
+    directory = assets(tmp_path)
+    output = prepare_site(tmp_path)
+    before = {path.name: path.read_bytes() for path in output.iterdir()}
+    (directory / "background.md").write_text(marker)
+    with pytest.raises(ValueError, match="background.md: expected one"):
+        prepare_site(tmp_path)
+    assert before == {path.name: path.read_bytes() for path in output.iterdir()}
 
 
 def assets(root: Path) -> Path:
