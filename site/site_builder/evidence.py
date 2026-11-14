@@ -14,7 +14,7 @@ from wildlife_screening.report import PERFORMANCE_HEADERS, coverage_display, rec
 
 from .dataset_runs import DatasetRuns, load_dataset_runs
 from .descriptions import ResultDescriptions
-from .layout import website_frame
+from .layout import PROJECT_TITLE, website_frame
 from .resource_grouping import resource_views
 from .table_grouping import GroupStats, format_stats, group_rows, table_numbers
 
@@ -464,7 +464,7 @@ def _html_document(content: str, data_json: str) -> str:
         'for wildlife-trade advert screening with decision models.">'
         '<link rel="canonical" '
         'href="https://ldswaby.github.io/wildlife-trade-screen/report.html">'
-        "<title>Report · Wildlife-trade screening</title>"
+        f"<title>Report · {html.escape(PROJECT_TITLE)}</title>"
         '<link rel="stylesheet" href="styles.css"><script src="site.js" defer></script>'
         '<script src="report.js"></script>'
         f"<script>{plotly_js}</script></head><body>{frame}"

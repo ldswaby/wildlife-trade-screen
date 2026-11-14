@@ -39,7 +39,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 }
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--control); border-bottom: 1px solid var(--border); }
 .header-inner { max-width: 1560px; margin: auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
-.brand { font-size: 14px; font-weight: 600; text-decoration: none; }
+.brand { min-width: 0; font-size: 14px; line-height: 1.4; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .site-header nav { display: flex; gap: 32px; }
 .site-header nav a { position: relative; padding: 22px 0; text-decoration: none; color: var(--muted); }
 .site-header nav a[aria-current="page"] { color: var(--text); }

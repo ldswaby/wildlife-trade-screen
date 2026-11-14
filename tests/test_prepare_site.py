@@ -84,7 +84,7 @@ def test_bundle_only_packages_allowed_files_and_refreshes_prose(tmp_path: Path) 
     index = (output / "index.html").read_text()
     report = (output / "report.html").read_text()
     assert 'aria-current="page">Overview' in index
-    assert "<title>Wildlife-trade screening</title>" in index
+    assert "<title>Decision models for zero-shot wildlife advert screening</title>" in index
     assert "Research question" in index and "Reproduce the study" in index
     assert "Invented abstract" not in index + report
     assert '<h2 id="abstract">Abstract</h2>' in report
@@ -215,6 +215,7 @@ def test_public_pages_share_a_fixed_publication_date_and_indexable_navigation(
     output = prepare_site(tmp_path)
     pages = {name: (output / name).read_text() for name in ("index.html", "report.html")}
     for page in pages.values():
+        assert "Wildlife-trade screening" not in page
         assert page.count("<h1>") == 1
         assert page.count('class="page-hero"') == 1
         assert page.index('id="main"') < page.index('class="page-hero"')
@@ -231,10 +232,23 @@ def test_public_pages_share_a_fixed_publication_date_and_indexable_navigation(
     assert pages == {name: (output / name).read_text() for name in pages}
     overview_hero = pages["index.html"].split('class="hero-inner">')[1].split("</div>")[0]
     report_hero = pages["report.html"].split('class="hero-inner">')[1].split("</div>")[0]
-    assert "Wildlife-trade screening</h1>" in overview_hero
+    assert "Decision models for zero-shot wildlife advert screening</h1>" in overview_hero
     assert '<p class="lead">' in overview_hero
     assert "Read the interactive report" not in overview_hero
-    assert report_hero == "<h1>Wildlife-trade screening report</h1>"
+    assert report_hero == "<h1>Decision models for zero-shot wildlife advert screening</h1>"
+    assert (
+        "<title>Report · Decision models for zero-shot wildlife advert screening</title>"
+        in pages["report.html"]
+    )
+    for page in pages.values():
+        assert (
+            '<a class="brand" href="./">Decision models for zero-shot wildlife advert screening</a>'
+            in page
+        )
+        assert (
+            '<footer class="site-footer">Decision models for zero-shot wildlife advert screening · '
+            in page
+        )
     image = "wildlife-screening-banner.webp"
     assert (output / image).read_bytes() == (ROOT / "site" / image).read_bytes()
 

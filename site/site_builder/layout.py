@@ -6,6 +6,7 @@ from datetime import date
 
 # First public release date; deliberately independent of build or update time.
 PUBLICATION_DATE = date(2026, 11, 13)
+PROJECT_TITLE = "Decision models for zero-shot wildlife advert screening"
 
 
 def website_frame(content: str, active: str) -> str:
@@ -33,7 +34,7 @@ def website_frame(content: str, active: str) -> str:
     return (
         '<a class="skip" href="#main">Skip to content</a>'
         '<header class="site-header"><div class="header-inner">'
-        '<a class="brand" href="./">Wildlife-trade screening</a>'
+        f'<a class="brand" href="./">{html.escape(PROJECT_TITLE)}</a>'
         '<nav aria-label="Main navigation">'
         + navigation
         + '<a href="https://github.com/ldswaby/wildlife-trade-screen">Code '
@@ -47,6 +48,6 @@ def website_frame(content: str, active: str) -> str:
         f'<time datetime="{PUBLICATION_DATE.isoformat()}">'
         f"Published: {PUBLICATION_DATE:%d/%m/%Y}</time></em></div>"
         '<div class="page-layout"><div class="page-content">' + content + "</div></div></main>"
-        '<footer class="site-footer">Wildlife-trade screening · '
+        f'<footer class="site-footer">{html.escape(PROJECT_TITLE)} · '
         "Code and reproducible results</footer>"
     )

@@ -8,6 +8,7 @@ from urllib.parse import parse_qs
 import markdown
 
 from .evidence import DatasetEvidence
+from .layout import PROJECT_TITLE
 from .prompt_viewer import prompt_sources, prompt_viewer
 
 DATASETS = {"animals": "Animal Products", "birds": "Live Birds", "sharks": "Shark Products"}
@@ -315,7 +316,7 @@ def report_content(
         else "<p>No saved dataset results are selected yet.</p>"
     )
     replacements = {
-        "report_title": "<h1>Wildlife-trade screening report</h1>",
+        "report_title": f"<h1>{html.escape(PROJECT_TITLE)}</h1>",
         "abstract": contextual_links(prose(directory, "report-abstract.md"), ordered),
         "introduction": contextual_links(prose(directory, "introduction.md"), ordered),
         "model_section": contextual_links(model_section(directory), ordered),

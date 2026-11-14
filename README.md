@@ -1,4 +1,4 @@
-# Wildlife-trade screening
+# Decision models for zero-shot wildlife advert screening
 
 [Project website](https://ldswaby.github.io/wildlife-trade-screen/) · [Interactive report](https://ldswaby.github.io/wildlife-trade-screen/report.html)
 
@@ -225,10 +225,12 @@ See the [results dictionary](results/README.md) for column definitions. To rebui
 ### Website title banners
 
 The Overview and Report use the same decorative, AI-generated illustration behind
-their existing titles. The Overview subtitle also appears in its banner. The
-tracked asset is `site/wildlife-screening-banner.webp`; `site/styles.css` controls
+the title “Decision models for zero-shot wildlife advert screening”.
+The Overview subtitle also appears in its banner. The tracked asset is
+`site/wildlife-screening-banner.webp`; `site/styles.css` controls
 the centred crop, 70% charcoal overlay, lower-edge fade and responsive heights
-(280px desktop, 210px mobile). Original colours are retained in the image itself.
+(minimum 280px desktop, 210px mobile; growing as titles wrap). Original colours
+are retained in the image itself.
 The original PNG is kept locally under `outputs/outreach/`, outside Git.
 The independently scrollable page index starts over the banner at the top right
 on desktop and stays visible while reading. It has no enclosing box; lighter links

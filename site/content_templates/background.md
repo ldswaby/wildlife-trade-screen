@@ -1,4 +1,4 @@
-# Wildlife-trade screening
+# Decision models for zero-shot wildlife advert screening
 
 <p class="lead">Evaluating off-the-shelf decision models for low-cost, policy-based screening of wildlife adverts.</p>
 
