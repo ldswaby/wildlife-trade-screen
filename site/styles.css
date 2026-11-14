@@ -44,9 +44,28 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 .site-header nav a { position: relative; padding: 22px 0; text-decoration: none; color: var(--muted); }
 .site-header nav a[aria-current="page"] { color: var(--text); }
 .site-header nav a[aria-current="page"]::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #ededed; }
+.page-hero {
+  background-color: var(--background);
+  /* At least 70% charcoal even over white pixels; the lower edge fades to the page. */
+  background-image: linear-gradient(to bottom, rgb(24 24 24 / 70%) 0%, rgb(24 24 24 / 70%) 55%, #181818 100%), url("wildlife-screening-banner.webp");
+  background-position: center;
+  background-size: cover;
+}
+.hero-inner {
+  max-width: 1560px;
+  min-height: 280px;
+  margin: auto;
+  padding: 36px 314px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-hero h1 { max-width: 1050px; margin: 0; overflow-wrap: anywhere; }
+.page-hero .lead { max-width: 850px; margin: 14px 0 0; color: var(--text); }
 .publication { max-width: 1560px; margin: auto; padding: 15px 40px 0; font-size: 12px; color: var(--muted); }
 .page-layout { max-width: 1560px; margin: auto; padding: 45px 40px 90px; display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 64px; align-items: start; }
 main { min-width: 0; color: var(--body-text); }
+.page-content { min-width: 0; }
 h1, h2, h3, h4, h5, h6 { color: var(--text); }
 h1, h2, h3 { font-family: inherit; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; }
 h1 { font-size: clamp(30px, 3.3vw, 42px); margin: 0 0 14px; }
@@ -59,11 +78,28 @@ strong { color: var(--text); font-weight: 600; }
 .notice { border: 1px solid var(--border); border-radius: 8px; padding: 19px 22px; margin: 30px 0; color: var(--muted); }
 .subtle, .scope { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
 .reference-links { padding-left: 20px; }
-.page-index { position: sticky; top: 110px; max-height: calc(100vh - 130px); overflow-y: auto; min-width: 0; font-size: 13px; line-height: 1.55; }
+.page-index {
+  position: fixed;
+  top: 94px;
+  right: max(40px, calc((100vw - 1560px) / 2 + 40px));
+  z-index: 5;
+  width: 210px;
+  max-height: calc(100vh - 114px);
+  max-height: calc(100dvh - 114px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px;
+  border: 0;
+  background: transparent;
+  text-shadow: 0 1px 3px #181818;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
 .page-index details > summary { color: var(--text); list-style: none; font-weight: 600; padding-bottom: 14px; pointer-events: none; }
 .page-index summary::-webkit-details-marker { display: none; }
 .page-index nav { display: flex; flex-direction: column; border-left: 1px solid var(--border); }
-.page-index a { color: var(--muted); text-decoration: none; padding: 7px 0 7px 18px; margin-left: -1px; border-left: 2px solid transparent; overflow-wrap: anywhere; }
+.page-index a { color: #dedede; text-decoration: none; padding: 7px 0 7px 18px; margin-left: -1px; border-left: 2px solid transparent; overflow-wrap: anywhere; }
 .page-index a[aria-current="location"] { color: #fff; border-left-color: #eee; }
 .page-index a:hover { color: #fff; }
 .page-index a.index-subsection { padding-left: 27px; font-size: 12px; }
@@ -96,12 +132,14 @@ tr.published-row td { background: var(--selected); }
 .table-guide dl { display: grid; grid-template-columns: minmax(130px,180px) 1fr; gap: 8px 16px; }
 .table-guide dt { color: var(--text); font-weight: 600; }
 .table-guide dd { margin: 0; color: inherit; }
-main summary { color: var(--text); }
-main details { margin-top: 18px; overflow-wrap: anywhere; }
+.page-content summary { color: var(--text); }
+.page-content details { margin-top: 18px; overflow-wrap: anywhere; }
 [hidden] { display: none !important; }
 @media (max-width: 1050px) {
   .page-layout { gap: 32px; grid-template-columns: minmax(0, 1fr) 175px; padding-inline: 25px; }
-  .header-inner, .publication { padding-inline: 25px; }
+  .header-inner, .publication, .hero-inner { padding-inline: 25px; }
+  .hero-inner { padding-right: 232px; }
+  .page-index { right: 25px; width: 175px; }
 }
 @media (max-width: 800px) {
   html { scroll-padding-top: 140px; }
@@ -109,9 +147,12 @@ main details { margin-top: 18px; overflow-wrap: anywhere; }
   .site-header nav { align-self: center; }
   .site-header nav a { padding: 12px 0; }
   .publication { padding: 12px 20px 0; }
+  .hero-inner { min-height: 210px; padding: 20px; }
+  .page-hero .lead { font-size: 17px; line-height: 1.5; }
   .page-layout { display: flex; flex-direction: column; padding: 22px 20px 55px; gap: 28px; }
-  .page-layout main { width: 100%; order: 1; }
-  .page-index { position: static; max-height: none; overflow-y: visible; width: 100%; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .page-layout .page-content { width: 100%; order: 1; }
+  .page-index { position: static; max-height: none; overflow-y: visible; width: 100%; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 12px 20px 4px; background: var(--background); text-shadow: none; }
+  .page-index nav { max-height: 45vh; overflow-y: auto; overscroll-behavior: contain; }
   .page-index details > summary { pointer-events: auto; cursor: pointer; padding-bottom: 8px; }
   .page-index summary::after { content: " +"; }
   .page-index details[open] summary::after { content: " −"; }
@@ -121,8 +162,9 @@ main details { margin-top: 18px; overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 /* Shared content column for both website pages. */
-.page-layout main { max-width: none; margin: 0; padding: 0; min-height: 0; background: var(--background); }
+.page-layout .page-content { max-width: none; margin: 0; padding: 0; min-height: 0; background: var(--background); }
 /* Report-only structure and controls; Abstract retains its existing layout. */
+.report-page > section:first-of-type > h2 { margin-top: 0; }
 .report-page .segment-scroll { display: flex; overflow-x: auto; max-width: 100%; margin: 24px 0; padding: 3px; }
 .report-page .segmented-tabs { display: inline-flex; flex: none; margin-inline: auto; padding: 4px; border: 1px solid var(--border); border-radius: 999px; gap: 4px; }
 .report-page .segment-tab { border: 1px solid transparent; border-radius: 999px; background: transparent; color: var(--text); padding: 10px 22px; white-space: nowrap; }

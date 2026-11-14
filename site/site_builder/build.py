@@ -29,7 +29,7 @@ from .selection import import_selection, resolved
 from .summary import summary_data, summary_figure
 
 ROOT = Path(__file__).resolve().parents[2]
-ASSETS = ("index.html", "styles.css", "site.js", "report.js")
+ASSETS = ("index.html", "styles.css", "site.js", "report.js", "wildlife-screening-banner.webp")
 
 
 def initialize(root: Path = ROOT) -> Path:

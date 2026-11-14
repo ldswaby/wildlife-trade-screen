@@ -222,6 +222,26 @@ python scripts/export_aggregate_results.py --output outputs/rerun-aggregates.csv
 
 See the [results dictionary](results/README.md) for column definitions. To rebuild the original study, keep the shipped selection and run the same build command.
 
+### Website title banners
+
+The Overview and Report use the same decorative, AI-generated illustration behind
+their existing titles. The Overview subtitle also appears in its banner. The
+tracked asset is `site/wildlife-screening-banner.webp`; `site/styles.css` controls
+the centred crop, 70% charcoal overlay, lower-edge fade and responsive heights
+(280px desktop, 210px mobile). Original colours are retained in the image itself.
+The original PNG is kept locally under `outputs/outreach/`, outside Git.
+The independently scrollable page index starts over the banner at the top right
+on desktop and stays visible while reading. It has no enclosing box; lighter links
+and a subtle text shadow preserve readability over the darkened banner. The Report's
+opening Abstract heading omits its usual 48px top margin to bring it closer to the banner.
+On mobile, the collapsible index sits above the banner and its expanded list scrolls.
+
+After editing the image or styles, run `python site/build.py build` and open
+`build/site/index.html` and `build/site/report.html` to review both pages. The build
+copies the image through its explicit asset allowlist into `build/site/`. It uses
+saved evidence offline and does not run inference. Rebuilding is local; publication
+remains a separate step.
+
 ## 6. Use your own data
 
 Choose a task whose monitoring policy matches your labels. Save a CSV such as the following under `outputs/my-adverts.csv`:

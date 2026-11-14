@@ -215,6 +215,12 @@ def test_public_pages_share_a_fixed_publication_date_and_indexable_navigation(
     output = prepare_site(tmp_path)
     pages = {name: (output / name).read_text() for name in ("index.html", "report.html")}
     for page in pages.values():
+        assert page.count("<h1>") == 1
+        assert page.count('class="page-hero"') == 1
+        assert page.index('id="main"') < page.index('class="page-hero"')
+        assert page.index('class="page-index"') < page.index('class="page-hero"')
+        assert page.index('class="page-hero"') < page.index('class="publication"')
+        assert page.index('class="publication"') < page.index('class="page-layout"')
         assert '<em><time datetime="2026-11-13">Published: 13/11/2026</time></em>' in page
         assert "noindex" not in page
         assert "Private preview" not in page and "Draft research" not in page
@@ -223,3 +229,27 @@ def test_public_pages_share_a_fixed_publication_date_and_indexable_navigation(
         assert 'rel="canonical"' in page
     prepare_site(tmp_path)
     assert pages == {name: (output / name).read_text() for name in pages}
+    overview_hero = pages["index.html"].split('class="hero-inner">')[1].split("</div>")[0]
+    report_hero = pages["report.html"].split('class="hero-inner">')[1].split("</div>")[0]
+    assert "Wildlife-trade screening</h1>" in overview_hero
+    assert '<p class="lead">' in overview_hero
+    assert "Read the interactive report" not in overview_hero
+    assert report_hero == "<h1>Wildlife-trade screening report</h1>"
+    image = "wildlife-screening-banner.webp"
+    assert (output / image).read_bytes() == (ROOT / "site" / image).read_bytes()
+
+
+@pytest.mark.parametrize("symlink", [False, True])
+def test_banner_requires_a_regular_asset_before_replacing_bundle(
+    tmp_path: Path, symlink: bool
+) -> None:
+    assets(tmp_path)
+    output = prepare_site(tmp_path)
+    before = {path.name: path.read_bytes() for path in output.iterdir()}
+    image = tmp_path / "site/wildlife-screening-banner.webp"
+    image.unlink()
+    if symlink:
+        image.symlink_to(ROOT / "site/wildlife-screening-banner.webp")
+    with pytest.raises(ValueError, match="Expected regular website assets"):
+        prepare_site(tmp_path)
+    assert before == {path.name: path.read_bytes() for path in output.iterdir()}
