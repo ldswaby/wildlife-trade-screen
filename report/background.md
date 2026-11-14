@@ -1,12 +1,12 @@
 # Wildlife-trade screening
 
-<p class="lead">Evaluating decision models for low-cost, zero-shot wildlife advert screening.</p>
+<p class="lead"><em>Evaluating decision models for low-cost, zero-shot wildlife advert screening.</em></p>
 
 **📚 [Read the interactive report](report.html)** · **👨‍💻 [Explore the code](https://github.com/ldswaby/wildlife-trade-screen)** · **🔬 [Reproduce the study](https://github.com/ldswaby/wildlife-trade-screen#1-install-and-get-ready)**
 
 ## Research question
 
-Can off-the-shelf decision models deliver competitive wildlife-advert screening without task-specific training?
+*Can off-the-shelf decision models deliver competitive wildlife-advert screening without task-specific training?*
 
 ## The study
 
