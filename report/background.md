@@ -10,7 +10,7 @@
 
 ## The study
 
-The study compares three decision models against published baselines and a contemporary chat model on three previously published monitoring datasets: [Shark Products](report.html#dataset-data-2), [Animal Products](report.html#dataset-data-0) and [Live Birds](report.html#dataset-data-1). The [report](report.html) presents findings along several performance axes, including balanced accuracy at fixed decision thresholds, descriptive ROC curves, and API cost and request latency across experimental configurations.
+The study compares three decision models against published baselines and a contemporary chat model on three previously published monitoring datasets: [Shark Products](report.html#dataset-data-2), [Animal Products](report.html#dataset-data-0) and [Live Birds](report.html#dataset-data-1). The [report](report.html) presents findings regarding screening performance, inference costs, and speed across experimental conditions.
 
 Decision models delivered strong and fast screening performance at low hosted API costs. Perhaps most strikingly, a 4-bit quantised 27B `d3` model running locally on a 32 GB consumer laptop outperformed baselines across datasets with no training, threshold tuning, or in-context examples.
 
